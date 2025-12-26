@@ -1,5 +1,5 @@
 {
-    "name": "Jack009/paginator-bundle",
+    "name": "jack009/paginator-bundle",
     "type": "symfony-bundle",
     "description": "A paginator bundle to ease pagination within a Symfony application.",
     "minimum-stability": "stable",
