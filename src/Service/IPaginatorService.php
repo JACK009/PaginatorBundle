@@ -1,9 +1,9 @@
 <?php
 
-namespace App\PaginatorBundle\Service;
+namespace Jack009\PaginatorBundle\Service;
 
-use App\PaginatorBundle\DTO\Paginator;
 use Doctrine\ORM\Query;
+use Jack009\PaginatorBundle\DTO\Paginator;
 
 interface IPaginatorService
 {

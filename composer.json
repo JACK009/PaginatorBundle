@@ -1,0 +1,36 @@
+{
+    "name": "Jack009/paginator-bundle",
+    "type": "symfony-bundle",
+    "description": "A paginator bundle to ease pagination within a Symfony application.",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "keywords": [
+        "Pagination",
+        "Symfony",
+        "Bundle"
+    ],
+    "homepage": "https://github.com/JACK009/PaginatorBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "J.A.C.K. 009",
+            "homepage": "https://github.com/JACK009"
+        }
+    ],
+    "require": {
+        "php": "^8.4",
+        "symfony/framework-bundle": "^8.0",
+        "symfony/twig-bundle": "^8.0",
+        "doctrine/orm": "^3.5.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jack009\\PaginatorBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    }
+}

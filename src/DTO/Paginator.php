@@ -1,6 +1,6 @@
 <?php
 
-namespace App\PaginatorBundle\DTO;
+namespace Jack009\PaginatorBundle\DTO;
 
 class Paginator
 {
