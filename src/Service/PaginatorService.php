@@ -5,7 +5,7 @@ namespace Jack009\PaginatorBundle\Service;
 use Doctrine\ORM\Query;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 
-final class PaginatorService implements IPaginatorService
+class PaginatorService implements IPaginatorService
 {
     protected $maxResults = 3;
     protected $maxLimit = 100;
