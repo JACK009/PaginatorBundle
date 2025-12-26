@@ -12,6 +12,15 @@ class PaginatorExtension extends Extension
 
     public function load(array $configs, ContainerBuilder $container): void
     {
+        if ($container->hasDefinition('twig.loader.filesystem')) {
+            $container
+                ->getDefinition('twig.loader.filesystem')
+                ->addMethodCall(
+                    'addPath',
+                    [__DIR__ . '/../../templates', 'PaginatorBundle']
+                );
+        }
+
         $loader = new YamlFileLoader(
             $container,
             new FileLocator(__DIR__ . '/../../config')
