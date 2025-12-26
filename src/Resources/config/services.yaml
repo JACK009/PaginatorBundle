@@ -1,4 +1,9 @@
 services:
+    Jack009\PaginatorBundle\Service\PaginatorService:
+        autowire: true
+        autoconfigure: true
+        public: false
+    Jack009\PaginatorBundle\Service\IPaginatorService: '@Jack009\PaginatorBundle\Service\PaginatorService'
     Jack009\PaginatorBundle\:
         resource: '../*'
         exclude: '../{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'

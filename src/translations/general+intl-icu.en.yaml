@@ -1,0 +1,3 @@
+paginationFromTo: 'Showing {from} to {to} of {totalResults} results.'
+Previous: Previous
+Next: Next
