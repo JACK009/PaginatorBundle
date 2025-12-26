@@ -1,0 +1,4 @@
+services:
+    App\PaginatorBundle\:
+        resource: '../*'
+        exclude: '../{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'

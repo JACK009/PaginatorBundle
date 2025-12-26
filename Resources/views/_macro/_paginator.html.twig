@@ -1,0 +1,131 @@
+{% macro paginator(paginationDTO) %}
+    <div class="mb-4">
+        <hr>
+        <div class="d-flex justify-content-between align-items-center">
+            <p class="m-0 text-muted"><small>{{ 'paginationFromTo'|trans({'{from}': (paginationDTO.currentPage * paginationDTO.pageSize) +1 - paginationDTO.pageSize, '{to}': (paginationDTO.currentPage * paginationDTO.pageSize) > paginationDTO.totalResults ? paginationDTO.totalResults : paginationDTO.currentPage * paginationDTO.pageSize, '{totalResults}': paginationDTO.totalResults}, 'general') }}</small></p>
+
+            <nav aria-label="Page navigation">
+                <ul class="pagination mb-0">
+                    <li class="page-item {{ paginationDTO.currentPage == 1 ? 'disabled' }}">
+                        <a class="page-link" href="{{ path(paginationDTO.routeName, paginationDTO.routeParameters|merge({(paginationDTO.pageParameter): paginationDTO.currentPage-1 < 1 ? 1 : paginationDTO.currentPage-1})) }}">
+                            {{ 'Previous'|trans({}, 'general') }}
+                        </a>
+                    </li>
+
+                    {% if paginationDTO.maxPages <= 10 %}
+                        {% for i in 1..paginationDTO.maxPages %}
+                            <li class="page-item">
+                                <a class="page-link {{ paginationDTO.currentPage == i ? 'active' }}" href="{{ path(paginationDTO.routeName, paginationDTO.routeParameters|merge({(paginationDTO.pageParameter): i})) }}">
+                                    {{ i }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        {% if paginationDTO.currentPage <= 4 %}
+                            {% for i in 1..8 %}
+                                <li class="page-item">
+                                    <a class="page-link {{ paginationDTO.currentPage == i ? 'active' }}" href="{{ path(paginationDTO.routeName, paginationDTO.routeParameters|merge({(paginationDTO.pageParameter): i})) }}">
+                                        {{ i }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                            <li class="page-item">
+                                <a class="page-link" href="#">
+                                    ...
+                                </a>
+                            </li>
+
+                            <li class="page-item">
+                                <a class="page-link" href="{{ path(paginationDTO.routeName, paginationDTO.routeParameters|merge({(paginationDTO.pageParameter): paginationDTO.maxPages-1})) }}">
+                                    {{ paginationDTO.maxPages-1 }}
+                                </a>
+                            </li>
+
+                            <li class="page-item">
+                                <a class="page-link" href="{{ path(paginationDTO.routeName, paginationDTO.routeParameters|merge({(paginationDTO.pageParameter): paginationDTO.maxPages})) }}">
+                                    {{ paginationDTO.maxPages }}
+                                </a>
+                            </li>
+                        {% elseif paginationDTO.currentPage > 4 and paginationDTO.currentPage < paginationDTO.maxPages -4 %}
+                            <li class="page-item">
+                                <a class="page-link" href="{{ path(paginationDTO.routeName, paginationDTO.routeParameters|merge({(paginationDTO.pageParameter): 1})) }}">
+                                    1
+                                </a>
+                            </li>
+
+                            <li class="page-item">
+                                <a class="page-link" href="{{ path(paginationDTO.routeName, paginationDTO.routeParameters|merge({(paginationDTO.pageParameter): 2})) }}">
+                                    2
+                                </a>
+                            </li>
+
+                            <li class="page-item">
+                                <a class="page-link" href="#">
+                                    ...
+                                </a>
+                            </li>
+
+                            {% for i in paginationDTO.currentPage-2..paginationDTO.currentPage+2 %}
+                                <li class="page-item">
+                                    <a class="page-link {{ paginationDTO.currentPage == i ? 'active' }}" href="{{ path(paginationDTO.routeName, paginationDTO.routeParameters|merge({(paginationDTO.pageParameter): i})) }}">
+                                        {{ i }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+
+                            <li class="page-item">
+                                <a class="page-link" href="#">
+                                    ...
+                                </a>
+                            </li>
+
+                            <li class="page-item">
+                                <a class="page-link" href="{{ path(paginationDTO.routeName, paginationDTO.routeParameters|merge({(paginationDTO.pageParameter): paginationDTO.maxPages-1})) }}">
+                                    {{ paginationDTO.maxPages-1 }}
+                                </a>
+                            </li>
+
+                            <li class="page-item">
+                                <a class="page-link" href="{{ path(paginationDTO.routeName, paginationDTO.routeParameters|merge({(paginationDTO.pageParameter): paginationDTO.maxPages})) }}">
+                                    {{ paginationDTO.maxPages }}
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="page-item">
+                                <a class="page-link" href="{{ path(paginationDTO.routeName, paginationDTO.routeParameters|merge({(paginationDTO.pageParameter): 1})) }}">
+                                    1
+                                </a>
+                            </li>
+
+                            <li class="page-item">
+                                <a class="page-link" href="{{ path(paginationDTO.routeName, paginationDTO.routeParameters|merge({(paginationDTO.pageParameter): 2})) }}">
+                                    2
+                                </a>
+                            </li>
+
+                            <li class="page-item">
+                                <a class="page-link" href="#">
+                                    ...
+                                </a>
+                            </li>
+
+                            {% for i in paginationDTO.maxPages-4..paginationDTO.maxPages %}
+                                <li class="page-item">
+                                    <a class="page-link {{ paginationDTO.currentPage == i ? 'active' }}" href="{{ path(paginationDTO.routeName, paginationDTO.routeParameters|merge({(paginationDTO.pageParameter): i})) }}">
+                                        {{ i }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+
+                    <li class="page-item {{ paginationDTO.currentPage == paginationDTO.maxPages ? 'disabled' }}">
+                        <a class="page-link" href="{{ path(paginationDTO.routeName, paginationDTO.routeParameters|merge({(paginationDTO.pageParameter): paginationDTO.currentPage-1 < paginationDTO.maxPages ? paginationDTO.currentPage+1 : paginationDTO.currentPage})) }}">
+                            {{ 'Next'|trans({}, 'general') }}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+{% endmacro %}
