@@ -2,13 +2,13 @@
     <div class="mb-4">
         <hr>
         <div class="d-flex justify-content-between align-items-center">
-            <p class="m-0 text-muted"><small>{{ 'paginationFromTo'|trans({'{from}': (paginationDTO.currentPage * paginationDTO.pageSize) +1 - paginationDTO.pageSize, '{to}': (paginationDTO.currentPage * paginationDTO.pageSize) > paginationDTO.totalResults ? paginationDTO.totalResults : paginationDTO.currentPage * paginationDTO.pageSize, '{totalResults}': paginationDTO.totalResults}, 'general') }}</small></p>
+            <p class="m-0 text-muted"><small>{{ 'paginationFromTo'|trans({'{from}': (paginationDTO.currentPage * paginationDTO.pageSize) +1 - paginationDTO.pageSize, '{to}': (paginationDTO.currentPage * paginationDTO.pageSize) > paginationDTO.totalResults ? paginationDTO.totalResults : paginationDTO.currentPage * paginationDTO.pageSize, '{totalResults}': paginationDTO.totalResults}, 'paginator') }}</small></p>
 
             <nav aria-label="Page navigation">
                 <ul class="pagination mb-0">
                     <li class="page-item {{ paginationDTO.currentPage == 1 ? 'disabled' }}">
                         <a class="page-link" href="{{ path(paginationDTO.routeName, paginationDTO.routeParameters|merge({(paginationDTO.pageParameter): paginationDTO.currentPage-1 < 1 ? 1 : paginationDTO.currentPage-1})) }}">
-                            {{ 'Previous'|trans({}, 'general') }}
+                            {{ 'Previous'|trans({}, 'paginator') }}
                         </a>
                     </li>
 
@@ -121,7 +121,7 @@
 
                     <li class="page-item {{ paginationDTO.currentPage == paginationDTO.maxPages ? 'disabled' }}">
                         <a class="page-link" href="{{ path(paginationDTO.routeName, paginationDTO.routeParameters|merge({(paginationDTO.pageParameter): paginationDTO.currentPage-1 < paginationDTO.maxPages ? paginationDTO.currentPage+1 : paginationDTO.currentPage})) }}">
-                            {{ 'Next'|trans({}, 'general') }}
+                            {{ 'Next'|trans({}, 'paginator') }}
                         </a>
                     </li>
                 </ul>
