@@ -161,7 +161,7 @@ Example Twig template:
 
 {% block body %}
     <ul>
-        {% for item in items %}
+        {% for item in paginator.items %}
             <li>{{ item.name }}</li>
         {% else %}
             <li>No items found.</li>
