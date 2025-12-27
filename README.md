@@ -5,6 +5,11 @@ Usage
 - Used in Symfony 8.x and PHP 8.4+ projects, this bundle provides a simple and flexible way to paginate large datasets.
 - Bootstrap v5 compatible by default. (You can customize or creat your own Twig macro to fit other CSS frameworks.)
 - Paginator DTO is returned to controllers and templates, containing pagination metadata and the current page's items.
+- Provides a Twig macro for rendering pagination controls.
+- Default implementation of `IPaginatorService` using Doctrine ORM's QueryBuilder.
+- Easily customizable and extendable to fit specific project needs.
+- Includes unit and functional tests to ensure reliability.
+- See the [documentation reference](docs/index.md) for detailed class, method and implementation documentation.
 
 Installation
 ============
