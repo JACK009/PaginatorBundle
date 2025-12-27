@@ -2,8 +2,12 @@ This Bundle is using the Best Practices for Reusable Bundles https://symfony.com
 
 Paginator Bundle
 ================
+A simple and flexible paginator bundle for Symfony 8.x and PHP 8.4+ projects.
+This bundle provides a straightforward way to paginate large datasets, with a default implementation using Doctrine ORM's QueryBuilder and a Twig macro for rendering pagination controls.
 
 ![Alt text](docs/img/paginator.png?raw=true "Title")
+
+Use PaginatorService to paginate your data and render pagination controls in your Twig templates using the provided macro.
 
 Usage
 =====
