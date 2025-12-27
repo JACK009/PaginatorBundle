@@ -76,6 +76,13 @@ services:
 
 Check `src/DependencyInjection/PaginatorExtension.php` for any available configuration keys the bundle exposes. If no user-facing config exists, the bundle will work with default settings out of the box.
 
+You can also set parameters in services.yaml set the default implementation if you don't create a custom one:
+
+```yaml
+parameters:
+  paginator.max_results: 10
+  paginator.max_limit: 100
+```
 
 ## Usage
 
