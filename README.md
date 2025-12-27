@@ -1,5 +1,10 @@
 This Bundle is using the Best Practices for Reusable Bundles https://symfony.com/doc/current/bundles/best_practices.html#bundle-name
 
+Paginator Bundle
+================
+
+![Alt text](docs/img/paginator.png?raw=true "Title")
+
 Usage
 =====
 - Used in Symfony 8.x and PHP 8.4+ projects, this bundle provides a simple and flexible way to paginate large datasets.
