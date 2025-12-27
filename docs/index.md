@@ -76,7 +76,7 @@ services:
 
 Check `src/DependencyInjection/PaginatorExtension.php` for any available configuration keys the bundle exposes. If no user-facing config exists, the bundle will work with default settings out of the box.
 
-You can also set parameters in services.yaml set the default implementation if you don't create a custom one:
+You can also set parameters in services.yaml to override the default implementation's behavior, for example:
 
 ```yaml
 parameters:
