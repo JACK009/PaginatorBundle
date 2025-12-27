@@ -1,4 +1,11 @@
 services:
+    # default service loading for the bundle
     Jack009\PaginatorBundle\:
         resource: '../src/'
         exclude: '../src/{DependencyInjection, PaginatorBundle.php,Entity,Migrations,Tests,Kernel.php}'
+
+    # explicit service definition for PaginatorService to inject configuration parameters
+    Jack009\PaginatorBundle\Service\PaginatorService:
+        arguments:
+            $maxResults: '%jack009_paginator.max_results%'
+            $maxLimit: '%jack009_paginator.max_limit%'

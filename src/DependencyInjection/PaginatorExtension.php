@@ -13,6 +13,13 @@ class PaginatorExtension extends Extension implements PrependExtensionInterface
 
     public function load(array $configs, ContainerBuilder $container): void
     {
+        $configuration = new Configuration();
+        $config = $this->processConfiguration($configuration, $configs);
+
+        // set parameters so services can use them
+        $container->setParameter('jack009_paginator.max_results', $config['max_results']);
+        $container->setParameter('jack009_paginator.max_limit', $config['max_limit']);
+
         $loader = new YamlFileLoader(
             $container,
             new FileLocator(__DIR__ . '/../../config')
@@ -38,5 +45,10 @@ class PaginatorExtension extends Extension implements PrependExtensionInterface
                 ],
             ],
         ]);
+    }
+
+    public function getAlias(): string
+    {
+        return 'jack009_paginator';
     }
 }

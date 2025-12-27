@@ -7,8 +7,14 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
 
 class PaginatorService implements IPaginatorService
 {
-    protected $maxResults = 3;
-    protected $maxLimit = 100;
+    protected int $maxResults;
+    protected int $maxLimit;
+
+    public function __construct(int $maxResults = 10, int $maxLimit = 100)
+    {
+        $this->maxResults = $maxResults;
+        $this->maxLimit = $maxLimit;
+    }
 
     public function getPagination(Query $queryBuilder, string $routeName, int $page = 1, ?int $limit = null, array $routeParameters = [], string $pageParameter = 'page'): \Jack009\PaginatorBundle\DTO\Paginator
     {
@@ -23,7 +29,7 @@ class PaginatorService implements IPaginatorService
         $totalResults = count($paginator);
 
         return new \Jack009\PaginatorBundle\DTO\Paginator(
-            ceil($totalResults / $limit),
+            (int) ceil($totalResults / $limit),
             $page,
             $limit,
             $totalResults,
