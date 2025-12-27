@@ -22,9 +22,20 @@ class PaginatorExtension extends Extension implements PrependExtensionInterface
 
     public function prepend(ContainerBuilder $container): void
     {
+        // Prepend twig template path so templates from this bundle are available
         $container->prependExtensionConfig('twig', [
             'paths' => [
                 __DIR__ . '/../../templates' => 'PaginatorBundle',
+            ],
+        ]);
+
+        // Prepend translator path so Symfony's translator loads bundle translations automatically
+        // This adds the bundle's `translations/` directory into the framework.translator.paths config
+        $container->prependExtensionConfig('framework', [
+            'translator' => [
+                'paths' => [
+                    __DIR__ . '/../../translations',
+                ],
             ],
         ]);
     }
