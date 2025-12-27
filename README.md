@@ -1,5 +1,11 @@
 This Bundle is using the Best Practices for Reusable Bundles https://symfony.com/doc/current/bundles/best_practices.html#bundle-name
 
+Usage
+=====
+- Used in Symfony 8.x and PHP 8.4+ projects, this bundle provides a simple and flexible way to paginate large datasets.
+- Bootstrap v5 compatible by default. (You can customize or creat your own Twig macro to fit other CSS frameworks.)
+- Paginator DTO is returned to controllers and templates, containing pagination metadata and the current page's items.
+
 Installation
 ============
 
