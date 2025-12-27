@@ -3,7 +3,7 @@
 namespace Jack009\PaginatorBundle\Service;
 
 use Doctrine\ORM\Query;
-use Doctrine\ORM\Tools\Pagination\Paginator;
+use Doctrine\ORM\Tools\Pagination\Paginator as DoctrinePaginator;
 
 class PaginatorService implements IPaginatorService
 {
@@ -25,7 +25,8 @@ class PaginatorService implements IPaginatorService
         $queryBuilder->setMaxResults($limit)
             ->setFirstResult($offset);
 
-        $paginator = new Paginator($queryBuilder);
+        // Use factory method so tests can inject a fake paginator
+        $paginator = $this->createPaginator($queryBuilder);
         $totalResults = count($paginator);
 
         return new \Jack009\PaginatorBundle\DTO\Paginator(
@@ -38,5 +39,11 @@ class PaginatorService implements IPaginatorService
             $pageParameter,
             iterator_to_array($paginator)
         );
+    }
+
+    // Protected factory for creating the Doctrine Paginator; override in tests to inject a stub
+    protected function createPaginator(Query $query): DoctrinePaginator
+    {
+        return new DoctrinePaginator($query);
     }
 }

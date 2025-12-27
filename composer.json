@@ -32,5 +32,9 @@
         "psr-4": {
             "Jack009\\Tests\\": "tests/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "10",
+        "symfony/phpunit-bridge": "8"
     }
 }
