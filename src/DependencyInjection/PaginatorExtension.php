@@ -17,8 +17,8 @@ class PaginatorExtension extends Extension implements PrependExtensionInterface
         $config = $this->processConfiguration($configuration, $configs);
 
         // set parameters so services can use them
-        $container->setParameter('jack009_paginator.max_results', $config['max_results']);
-        $container->setParameter('jack009_paginator.max_limit', $config['max_limit']);
+        $container->setParameter('paginator.max_results', $config['max_results']);
+        $container->setParameter('paginator.max_limit', $config['max_limit']);
 
         $loader = new YamlFileLoader(
             $container,

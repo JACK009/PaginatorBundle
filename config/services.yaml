@@ -7,5 +7,5 @@ services:
     # explicit service definition for PaginatorService to inject configuration parameters
     Jack009\PaginatorBundle\Service\PaginatorService:
         arguments:
-            $maxResults: '%jack009_paginator.max_results%'
-            $maxLimit: '%jack009_paginator.max_limit%'
+            $maxResults: '%paginator.max_results%'
+            $maxLimit: '%paginator.max_limit%'
