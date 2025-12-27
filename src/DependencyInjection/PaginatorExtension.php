@@ -49,6 +49,6 @@ class PaginatorExtension extends Extension implements PrependExtensionInterface
 
     public function getAlias(): string
     {
-        return 'jack009_paginator';
+        return 'paginator';
     }
 }
